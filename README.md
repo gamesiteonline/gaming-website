@@ -1,285 +1,146 @@
-# GAMESITEONLINE
+# GameSiteOnline - PC Games Database Website
 
-A production-ready game distribution platform built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** — featuring **Neo-Brutalism** design, bilingual support (English/Kiswahili), and integration with the [game-database](https://github.com/gamesiteonline/game-database) repository.
+A skeuomorphic-designed website for browsing and downloading PC games from the Internet Archive.
 
-![GAMESITEONLINE](https://github.com/gamesiteonline/gamesiteonline/blob/main/image/1782870111467.png?raw=true)
+## Overview
+
+GameSiteOnline is a curated database of top-rated PC games organized by genre, with direct download links from the Internet Archive. The website features a skeuomorphic design with realistic textures that mimic real-world materials like wood, leather, and metal.
 
 ## Features
 
-- 🎮 **Game Database**: Browse 10,000+ games across 7 platforms (DOS, PS1, PS2, PS3/PS4, Xbox 360, PC Dreamcast, Mobile)
-- 🎨 **Neo-Brutalism Design**: Bold typography, high contrast, raw UI elements
-- 🌍 **Bilingual**: Full English & Kiswahili support with persistent language selection
-- 🔍 **Advanced Search & Filters**: Filter by platform, genre, rating, size; search across name, description, platform
-- 📱 **Responsive**: Mobile-first, works on all devices
-- ⚡ **Performance**: Static generation, lazy loading, optimized images, ISR caching
-- 📥 **AN1-style Download Protocol**: Game details, direct download, Telegram bot, WhatsApp channel
-- 🔒 **Contact Protection**: Phone number hidden behind modal with multiple contact options
+- **Skeuomorphic Design**: Realistic textures and depth effects that mimic physical materials
+- **10 Game Categories**: Action, Adventure, RPG, Strategy, Simulation, Sports, Fighting, Puzzle, Racing, Platformer
+- **Top-Rated Games**: Curated selection of highly-rated PC games
+- **Internet Archive Integration**: Direct download links to legally available games
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Search & Filter**: Find games by genre, rating, name, and more
+- **Detailed Game Information**: Release year, developer, publisher, file size
+- **Legal & Safe**: Only links to games legally available through Internet Archive
+- **Complete Legal Pages**: Privacy Policy, Terms of Service, and Contact information
 
-## Tech Stack
+## Design Elements
 
-- **Framework**: Next.js 14 (App Router, React Server Components)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS with custom Neo-Brutalism design system
-- **State**: React Context + localStorage for language persistence
-- **Data Fetching**: SWR-like patterns with Next.js cache revalidation
-- **Deployment**: Vercel-ready (static export supported)
+The website employs skeuomorphism with these texture elements:
+- **Wood textures** for headers and footers
+- **Leather textures** for hero sections and call-to-action areas
+- **Paper textures** for content sections
+- **Metal accents** for buttons and interactive elements
+- **Subtle shadows and highlights** for depth and dimension
 
-## Project Structure
+## Pages
+
+- `index.html` - Homepage with featured games and search
+- `pages/browse.html` - Complete game browser with filtering and sorting
+- `pages/about.html` - Information about GameSiteOnline
+- `pages/privacy.html` - Privacy policy
+- `pages/terms.html` - Terms of service
+- `pages/contact.html` - Contact form and information
+
+## Technical Implementation
+
+### Frontend Technologies
+- HTML5
+- CSS3 (with CSS variables, flexbox, grid)
+- JavaScript (ES6+)
+- Font Awesome 6 for icons
+
+### Design Features
+- CSS Variables for easy theming
+- Responsive layout with CSS Grid and Flexbox
+- Skeuomorphic effects using background images and CSS gradients
+- Interactive elements with hover/active states
+- Flip-card effect for game displays
+- Loading animations and transitions
+- Form validation and feedback
+
+### JavaScript Functionality
+- Game filtering by category filtering and sorting
+- Search functionality
+- Contact form handling with validation
+- Responsive menu behavior
+- Animation effects (ripple, fade-in, etc.)
+- Form submission simulation
+
+## File Structure
 
 ```
-gamesiteonline/
-├── public/
-│   └── data/                 # Cached game data (generated)
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── games/        # GET /api/games - all games
-│   │   │   └── games/[id]/   # GET /api/games/[id] - single game
-│   │   ├── games/
-│   │   │   └── [id]/         # Game detail page (SSG)
-│   │   ├── globals.css       # Global styles & Neo-Brutalism design system
-│   │   ├── layout.tsx        # Root layout with metadata
-│   │   └── page.tsx          # Home page
-│   ├── components/
-│   │   ├── games/            # Game components (Card, Grid, Filters, Detail)
-│   │   ├── layout/           # Layout components (Header, Footer, Modals)
-│   │   ├── providers/        # Context providers (Language)
-│   │   └── ui/               # Base UI components (Button, Input, Modal, Card, Badge)
-│   ├── lib/
-│   │   ├── game-data.ts      # Data fetching, filtering, sorting utilities
-│   │   └── utils.ts          # Helper functions
-│   ├── translations/
-│   │   ├── en.ts             # English translations
-│   │   ├── sw.ts             # Kiswahili translations
-│   │   └── index.ts          # Translation utilities
-│   └── types/
-│       └── index.ts          # TypeScript type definitions
-├── scripts/
-│   └── fetch-games.ts        # Script to pre-fetch game data
-├── package.json
-├── tsconfig.json
-├── next.config.js
-├── tailwind.config.ts
-└
-├── postcss.config.js
-└── README.md
+/gamesiteonline_website
+├── index.html
+├── /css
+│   └── style.css
+├── /js
+│   ├── main.js
+│   ├── browse.js
+│   └── contact.js
+├── /images
+│   ├── (placeholder images)
+│   ├── wood-texture.jpg
+│   ├── leather-texture.jpg
+│   └── paper-texture.jpg
+└── /pages
+    ├── browse.html
+    ├── about.html
+    ├── privacy.html
+    ├── terms.html
+    └── contact.html
 ```
 
-## Quick Start
+## How to Use
 
-### Prerequisites
+1. Clone or download the repository
+2. Open `index.html` in your web browser
+3. Browse games by category or use the search function
+4. Click on any game to see more details and download links
+5. Use the filter options to narrow down your search
+6. Visit the About, Privacy, Terms, and Contact pages via the footer or header navigation
 
-- Node.js 18.17+
-- npm/yarn/pnpm
+## Customization
 
-### Installation
-
-```bash
-# Clone the repository
-cd /root/gamesiteonline
-
-# Install dependencies
-npm install
-
-# Pre-fetch game data (optional, for offline development)
-npm run fetch-games
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-
-```bash
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-### Static Export (for CDN hosting)
-
-```bash
-# Add to next.config.js:
-# output: 'export'
-
-npm run build
-# Output will be in ./out/
-```
-
-## Data Source
-
-Games are fetched from the [game-database](https://github.com/gamesiteonline/game-database) repository:
-
-- `DOS_Games.json` — Classic DOS games
-- `PS1_PSX.json` — PlayStation 1 games
-- `PS2_PSP.json` — PlayStation 2 & PSP games
-- `PS3_PS4_Labels.json` — PlayStation 3 & 4 games
-- `XBOX_360.json` — Xbox 360 games
-- `PC_Dreamcast.json` — PC & Dreamcast games
-- `Mobile_APKs_IPAs.json` — Mobile games
-
-Data is cached with **ISR (Incremental Static Regeneration)** — revalidated every hour.
-
-## Language Support
-
-The app supports **English** and **Kiswahili**:
-
-- On first visit, a modal prompts language selection
-- Choice is stored in `localStorage` (`gamesite-language`)
-- All UI text, labels, buttons, and descriptions are dynamically translated
-- Language can be switched anytime via header button
-
-### Adding New Languages
-
-1. Create `src/translations/{code}.ts` following the translation schema
-2. Add to `src/translations/index.ts` languages array
-3. Update `LanguageProvider` to include new language
-
-## Neo-Brutalism Design System
-
-Custom Tailwind theme in `tailwind.config.ts`:
-
-### Colors
+### Changing Colors
+Edit the CSS variables in `css/style.css`:
 ```css
---brutal-bg: #FAFAFA          /* Light background */
---brutal-bgDark: #1A1A1A      /* Dark background */
---brutal-fg: #1A1A1A          /* Light foreground */
---brutal-fgDark: #FAFAFA      /* Dark foreground */
---brutal-primary: #FF3B30     /* Primary red */
---brutal-secondary: #007AFF   /* Secondary blue */
---brutal-accent: #FFCC00      /* Accent yellow */
---brutal-border: #1A1A1A      /* Light borders */
---brutal-borderDark: #FAFAFA  /* Dark borders */
+:root {
+    --primary-color: #8B4513; /* SaddleBrown */
+    --secondary-color: #D2B48C; /* Tan */
+    --accent-color: #CD853F; /* Peru */
+    /* ... */
+}
 ```
 
-### Shadows
-- `shadow-brutal` — 4px 4px 0px (light)
-- `shadow-brutal-lg` — 8px 8px 0px (light)
-- `shadow-brutal-dark` — 4px 4px 0px (dark)
-- `shadow-brutal-lg-dark` — 8px 8px 0px (dark)
+### Updating Textures
+Replace the texture images in the `/images` folder:
+- `wood-texture.jpg` - Used for headers and footers
+- `leather-texture.jpg` - Used for hero sections and CTAs
+- `paper-texture.jpg` - Used for content backgrounds
 
-### Typography
-- **Headers**: Space Grotesk (bold, tight tracking)
-- **Body**: Space Grotesk
-- **Code/Mono**: JetBrains Mono
-
-### Components
-All components use raw borders (3-4px), bold shadows, and high contrast. No rounded corners, no gradients, no subtle effects.
-
-## API Endpoints
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/games` | GET | All games with platforms & genres |
-| `/api/games/[id]` | GET | Single game by GameID |
-
-Responses include cache headers: `Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400`
-
-## Deployment
-
-### Vercel (Recommended)
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
+### Adding More Games
+Edit the `sampleGames` array in `js/browse.js` to add more game objects following the same format:
+```javascript
+{
+    id: "CATEGORY_ID",
+    name: "Game Name",
+    category: "Category Name",
+    rating: 9.5,
+    year: 2020,
+    developer: "Developer Name",
+    publisher: "Publisher Name",
+    fileSize": "X GB",
+    downloadLink: "https://archive.org/details/game_identifier"
+}
 ```
-
-### Docker
-
-```dockerfile
-FROM node:20-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
-```bash
-docker build -t gamesiteonline .
-docker run -p 3000:3000 gamesiteonline
-```
-
-### Static Hosting (Netlify, Cloudflare Pages, etc.)
-
-Enable static export in `next.config.js`:
-```js
-const nextConfig = {
-  output: 'export',
-  // ... other config
-};
-```
-
-Then `npm run build` and deploy the `out/` folder.
-
-## Environment Variables
-
-No required environment variables. Optional:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `NEXT_PUBLIC_SITE_URL` | Site URL for SEO | `http://localhost:3000` |
-
-## Performance Optimizations
-
-- **Static Generation**: Game detail pages pre-rendered at build time
-- **ISR**: Game list revalidated hourly
-- **Image Optimization**: Next.js Image with remote patterns, lazy loading
-- **Font Optimization**: `next/font` with `display: swap`
-- **Code Splitting**: Automatic per-route
-- **Bundle Analysis**: `npm run build && npx @next/bundle-analyzer`
-
-## Accessibility
-
-- Semantic HTML5 elements
-- ARIA labels on interactive elements
-- Focus management in modals
-- Keyboard navigation support
-- Color contrast ratios (WCAG AA)
-- Reduced motion support
-
-## Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run `npm run lint` and `npm run build`
-5. Submit a PR
-
-## License
-
-MIT License — see LICENSE file for details.
 
 ## Credits
 
-- **Owner**: Fahad Mohamed from Tanzania 🇹🇿
-- **Game Data**: [game-database](https://github.com/gamesiteonline/game-database)
-- **Cover Art**: Various sources (Unsplash, libretro, manuscdn)
-- **Emulator Compatibility Info**: Community-sourced
+- **Developed by**: Fahad Mohamed
+- **Design Inspiration**: Skeuomorphic design principles
+- **Game Data**: Based on ratings from Metacritic, IGN, and Steam
+- **Download Links**: Internet Archive Software Library
+- **Icons**: Font Awesome 6
 
-## Contact
+## License
 
-- **WhatsApp Channel**: https://whatsapp.com/channel/0029VbChyDUI1rcht5jajL3q
-- **Telegram**: https://t.me/faliz_AI
-- **Email**: gamesiteonlinetz@gmail.com
-- **Phone**: +255 796 339 436 (SMS)
+This project is for educational and demonstration purposes. The actual game data and download links point to the Internet Archive, which has its own terms of use for the hosted content.
 
----
+## Disclaimer
 
-**GAMESITEONLINE** — *Digital Archive of Dreams* 🇹🇿
+GameSiteOnline provides links to games hosted on the Internet Archive. We do not host any game files ourselves. All games linked are believed to be legally available for download through the Internet Archive's software library. Users should verify the legality of downloads in their jurisdiction before proceeding.
