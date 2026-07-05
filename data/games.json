@@ -1,0 +1,233 @@
+[
+  {
+    "id": "ACT_001",
+    "name": "Half-Life 2",
+    "category": "Action",
+    "rating": 9.6,
+    "year": 2004,
+    "developer": "Valve",
+    "publisher": "Valve",
+    "fileSize": "4.2 GB",
+    "downloadLink": "https://archive.org/details/halflife2"
+  },
+  {
+    "id": "ACT_002",
+    "name": "DOOM (2016)",
+    "category": "Action",
+    "rating": 9.4,
+    "year": 2016,
+    "developer": "id Software",
+    "publisher": "Bethesda Softworks",
+    "fileSize": "55 GB",
+    "downloadLink": "https://archive.org/details/doom2016"
+  },
+  {
+    "id": "ACT_003",
+    "name": "Portal 2",
+    "category": "Action",
+    "rating": 9.5,
+    "year": 2011,
+    "developer": "Valve",
+    "publisher": "Valve",
+    "fileSize": "3.8 GB",
+    "downloadLink": "https://archive.org/details/portal2"
+  },
+  {
+    "id": "RPG_001",
+    "name": "The Elder Scrolls V: Skyrim",
+    "category": "RPG",
+    "rating": 9.4,
+    "year": 2011,
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "fileSize": "6.8 GB",
+    "downloadLink": "https://archive.org/details/elderscrollsvskyrim"
+  },
+  {
+    "id": "RPG_002",
+    "name": "The Witcher 3: Wild Hunt",
+    "category": "RPG",
+    "rating": 9.5,
+    "year": 2015,
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "fileSize": "35 GB",
+    "downloadLink": "https://archive.org/details/witcher3wildhunt"
+  },
+  {
+    "id": "STR_001",
+    "name": "Civilization VI",
+    "category": "Strategy",
+    "rating": 9.1,
+    "year": 2016,
+    "developer": "Firaxis Games",
+    "publisher": "2K Games",
+    "fileSize": "8.5 GB",
+    "downloadLink": "https://archive.org/details/civilizationvi"
+  },
+  {
+    "id": "STR_002",
+    "name": "StarCraft II",
+    "category": "Strategy",
+    "rating": 9.3,
+    "year": 2010,
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
+    "fileSize": "30 GB",
+    "downloadLink": "https://archive.org/details/starcraft2"
+  },
+  {
+    "id": "SIM_001",
+    "name": "The Sims 4",
+    "category": "Simulation",
+    "rating": 8.7,
+    "year": 2014,
+    "developer": "Maxis",
+    "publisher": "Electronic Arts",
+    "fileSize": "10 GB",
+    "downloadLink": "https://archive.org/details/thesims4"
+  },
+  {
+    "id": "SIM_002",
+    "name": "Cities: Skylines",
+    "category": "Simulation",
+    "rating": 9.2,
+    "year": 2015,
+    "developer": "Colossal Order",
+    "publisher": "Paradox Interactive",
+    "fileSize": "4 GB",
+    "downloadLink": "https://archive.org/details/citiesskylines"
+  },
+  {
+    "id": "RAC_001",
+    "name": "Forza Horizon 4",
+    "category": "Racing",
+    "rating": 9.3,
+    "year": 2018,
+    "developer": "Playground Games",
+    "publisher": "Xbox Game Studios",
+    "fileSize": "65 GB",
+    "downloadLink": "https://archive.org/details/forzahorizon4"
+  },
+  {
+    "id": "RAC_002",
+    "name": "Rocket League",
+    "category": "Racing",
+    "rating": 8.9,
+    "year": 2015,
+    "developer": "Psyonix",
+    "publisher": "Psyonix",
+    "fileSize": "15 GB",
+    "downloadLink": "https://archive.org/details/rocketleague"
+  },
+  {
+    "id": "FIG_001",
+    "name": "Street Fighter V",
+    "category": "Fighting",
+    "rating": 8.8,
+    "year": 2016,
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "fileSize": "25 GB",
+    "downloadLink": "https://archive.org/details/streetfighterv"
+  },
+  {
+    "id": "FIG_002",
+    "name": "Mortal Kombat 11",
+    "category": "Fighting",
+    "rating": 9.0,
+    "year": 2019,
+    "developer": "NetherRealm Studios",
+    "publisher": "Warner Bros. Interactive Entertainment",
+    "fileSize": "45 GB",
+    "downloadLink": "https://archive.org/details/mk11"
+  },
+  {
+    "id": "PUZ_001",
+    "name": "Portal",
+    "category": "Puzzle",
+    "rating": 9.5,
+    "year": 2007,
+    "developer": "Valve",
+    "publisher": "Valve",
+    "fileSize": "1.5 GB",
+    "downloadLink": "https://archive.org/details/portal"
+  },
+  {
+    "id": "PUZ_002",
+    "name": "The Witness",
+    "category": "Puzzle",
+    "rating": 9.0,
+    "year": 2016,
+    "developer": "Thekla, Inc.",
+    "publisher": "Thekla, Inc.",
+    "fileSize": "4 GB",
+    "downloadLink": "https://archive.org/details/thewitness"
+  },
+  {
+    "id": "PLA_001",
+    "name": "Celeste",
+    "category": "Platformer",
+    "rating": 9.2,
+    "year": 2018,
+    "developer": "Matt Makes Games",
+    "publisher": "Matt Makes Games",
+    "fileSize": "1.2 GB",
+    "downloadLink": "https://archive.org/details/celeste"
+  },
+  {
+    "id": "PLA_002",
+    "name": "Hollow Knight",
+    "category": "Platformer",
+    "rating": 9.1,
+    "year": 2017,
+    "developer": "Team Cherry",
+    "publisher": "Team Cherry",
+    "fileSize": "2.5 GB",
+    "downloadLink": "https://archive.org/details/hollowknight"
+  },
+  {
+    "id": "ADV_001",
+    "name": "Life is Strange",
+    "category": "Adventure",
+    "rating": 8.9,
+    "year": 2015,
+    "developer": "Dontnod Entertainment",
+    "publisher": "Square Enix",
+    "fileSize": "5 GB",
+    "downloadLink": "https://archive.org/details/lifeisstrange"
+  },
+  {
+    "id": "ADV_002",
+    "name": "Firewatch",
+    "category": "Adventure",
+    "rating": 8.8,
+    "year": 2016,
+    "developer": "Campo Santo",
+    "publisher": "Panoramic",
+    "fileSize": "3 GB",
+    "downloadLink": "https://archive.org/details/firewatch"
+  },
+  {
+    "id": "SPO_001",
+    "name": "FIFA 23",
+    "category": "Sports",
+    "rating": 8.5,
+    "year": 2022,
+    "developer": "EA Vancouver",
+    "publisher": "Electronic Arts",
+    "fileSize": "50 GB",
+    "downloadLink": "https://archive.org/details/fifa23"
+  },
+  {
+    "id": "SPO_002",
+    "name": "NBA 2K24",
+    "category": "Sports",
+    "rating": 8.7,
+    "year": 2023,
+    "developer": "Visual Concepts",
+    "publisher": "2K Sports",
+    "fileSize": "60 GB",
+    "downloadLink": "https://archive.org/details/nba2k24"
+  }
+]

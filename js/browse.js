@@ -3,129 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Sample game data - in a real implementation, this would come from the database
-    const sampleGames = [
-        {
-            id: "ACT_001",
-            name: "Half-Life 2",
-            category: "Action",
-            rating: 9.6,
-            year: 2004,
-            developer: "Valve",
-            publisher: "Valve",
-            fileSize: "4.2 GB",
-            downloadLink: "https://archive.org/details/halflife2"
-        },
-        {
-            id: "ACT_002",
-            name: "DOOM (2016)",
-            category: "Action",
-            rating: 9.4,
-            year: 2016,
-            developer: "id Software",
-            publisher: "Bethesda Softworks",
-            fileSize: "55 GB",
-            downloadLink: "https://archive.org/details/doom2016"
-        },
-        {
-            id: "ACT_003",
-            name: "Portal 2",
-            category: "Action",
-            rating: 9.5,
-            year: 2011,
-            developer: "Valve",
-            publisher: "Valve",
-            fileSize: "3.8 GB",
-            downloadLink: "https://archive.org/details/portal2"
-        },
-        {
-            id: "RPG_001",
-            name: "The Elder Scrolls V: Skyrim",
-            category: "RPG",
-            rating: 9.4,
-            year: 2011,
-            developer: "Bethesda Game Studios",
-            publisher: "Bethesda Softworks",
-            fileSize: "6.8 GB",
-            downloadLink: "https://archive.org/details/elderscrollsvskyrim"
-        },
-        {
-            id: "RPG_002",
-            name: "The Witcher 3: Wild Hunt",
-            category: "RPG",
-            rating: 9.5,
-            year: 2015,
-            developer: "CD Projekt Red",
-            publisher: "CD Projekt",
-            fileSize: "35 GB",
-            downloadLink: "https://archive.org/details/witcher3wildhunt"
-        },
-        {
-            id: "STR_001",
-            name: "Civilization VI",
-            category: "Strategy",
-            rating: 9.1,
-            year: 2016,
-            developer: "Firaxis Games",
-            publisher: "2K Games",
-            fileSize: "8.5 GB",
-            downloadLink: "https://archive.org/details/civilizationvi"
-        },
-        {
-            id: "STR_002",
-            name: "StarCraft II",
-            category: "Strategy",
-            rating: 9.3,
-            year: 2010,
-            developer: "Blizzard Entertainment",
-            publisher: "Blizzard Entertainment",
-            fileSize: "30 GB",
-            downloadLink: "https://archive.org/details/starcraft2"
-        },
-        {
-            id: "SIM_001",
-            name: "The Sims 4",
-            category: "Simulation",
-            rating: 8.7,
-            year: 2014,
-            developer: "Maxis",
-            publisher: "Electronic Arts",
-            fileSize: "10 GB",
-            downloadLink: "https://archive.org/details/thesims4"
-        },
-        {
-            id: "SIM_002",
-            name: "Cities: Skylines",
-            category: "Simulation",
-            rating: 9.2,
-            year: 2015,
-            developer: "Colossal Order",
-            publisher: "Paradox Interactive",
-            fileSize: "4 GB",
-            downloadLink: "https://archive.org/details/citiesskylines"
-        },
-        {
-            id: "RAC_001",
-            name: "Forza Horizon 4",
-            category: "Racing",
-            rating: 9.3,
-            year: 2018,
-            developer: "Playground Games",
-            publisher: "Xbox Game Studios",
-            fileSize: "65 GB",
-            downloadLink: "https://archive.org/details/forzahorizon4"
-        },
-        {
-            id: "RAC_002",
-            name: "Rocket League",
-            category: "Racing",
-            rating: 8.9,
-            year: 2015,
-            developer: "Psyonix",
-            publisher: "Psyonix",
-            fileSize: "15 GB",
-            downloadLink: "https://archive.org/details/rocketleague"
-        }
-    ];
+    let allGames = [];
 
     // DOM Elements
     const gamesContainer = document.getElementById('gamesContainer');
@@ -134,22 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sortBy = document.getElementById('sortBy');
     const searchGames = document.getElementById('searchGames');
     const searchBtn = document.getElementById('searchBtn');
-
-    // Initialize the page
-    function init() {
-        displayGames(sampleGames);
-        updateCount(sampleGames.length);
-
-        // Add event listeners
-        genreFilter.addEventListener('change', filterGames);
-        sortBy.addEventListener('change', filterGames);
-        searchBtn.addEventListener('click', searchGamesFunc);
-        searchGames.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchGamesFunc();
-            }
-        });
-    }
 
     // Display games in the grid
     function displayGames(games) {
@@ -173,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             gameCard.innerHTML = `
                 <div class="game-card-front">
-                    <img src="../images/game-placeholder.jpg" alt="${game.name}">
+                    <img src="/images/game-placeholder.jpg" alt="${game.name}">
                     <div class="game-overlay">
                         <h3>${game.name}</h3>
                         <div class="game-rating">
@@ -211,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedGenre = genreFilter.value;
         const selectedSort = sortBy.value;
 
-        let filteredGames = [...sampleGames];
+        let filteredGames = [...allGames];
 
         // Filter by genre
         if (selectedGenre !== 'all') {
@@ -258,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const filteredGames = sampleGames.filter(game =>
+        const filteredGames = allGames.filter(game =>
             game.name.toLowerCase().includes(searchTerm)
         );
 
@@ -276,7 +138,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Load games from JSON file
+    function loadGames() {
+        // Show loading message
+        if (gamesContainer) {
+            gamesContainer.innerHTML = '<div class="loading-message"><p>Loading games...</p></div>';
+        }
+
+        fetch('/data/games.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                allGames = data;
+                // Initialize with all games
+                filterGames();
+            })
+            .catch(error => {
+                console.error('Error loading games:', error);
+                if (gamesContainer) {
+                    gamesContainer.innerHTML = '<p class="error">Failed to load games. Please try again later.</p>';
+                    updateCount(0);
+                }
+            });
+    }
+
     // Initialize the page
+    function init() {
+        // Add event listeners
+        genreFilter.addEventListener('change', filterGames);
+        sortBy.addEventListener('change', filterGames);
+        searchBtn.addEventListener('click', searchGamesFunc);
+        searchGames.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchGamesFunc();
+            }
+        });
+
+        // Load data
+        loadGames();
+    }
+
+    // Start
     init();
 
     // Add ripple effect to buttons (same as in main.js)
@@ -299,3 +205,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+});
