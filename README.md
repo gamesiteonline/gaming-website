@@ -1,14 +1,16 @@
-# GameSiteOnline - PC Games Database Website
+# GameSiteOnline - Skeuomorphic PC Games Database
 
-A skeuomorphic-designed website for browsing and downloading PC games from the Internet Archive.
+A beautifully designed skeuomorphic website for browsing and downloading PC games from the Internet Archive.
 
 ## Overview
 
-GameSiteOnline is a curated database of top-rated PC games organized by genre, with direct download links from the Internet Archive. The website features a skeuomorphic design with realistic textures that mimic real-world materials like wood, leather, and metal.
+GameSiteOnline features a rich skeuomorphic design with realistic textures that mimic real-world materials like wood, leather, and paper. The website provides access to a curated collection of top-rated PC games with direct download links from the Internet Archive.
+
+All game data is stored locally in the repository as JSON, making it easy to clone and run the site anywhere without external dependencies.
 
 ## Features
 
-- **Skeuomorphic Design**: Realistic textures and depth effects that mimic physical materials
+- **Authentic Skeuomorphic Design**: Realistic textures and depth effects
 - **10 Game Categories**: Action, Adventure, RPG, Strategy, Simulation, Sports, Fighting, Puzzle, Racing, Platformer
 - **Top-Rated Games**: Curated selection of highly-rated PC games
 - **Internet Archive Integration**: Direct download links to legally available games
@@ -18,14 +20,21 @@ GameSiteOnline is a curated database of top-rated PC games organized by genre, w
 - **Legal & Safe**: Only links to games legally available through Internet Archive
 - **Complete Legal Pages**: Privacy Policy, Terms of Service, and Contact information
 
-## Design Elements
+## Data Source
 
-The website employs skeuomorphism with these texture elements:
-- **Wood textures** for headers and footers
-- **Leather textures** for hero sections and call-to-action areas
-- **Paper textures** for content sections
-- **Metal accents** for buttons and interactive elements
-- **Subtle shadows and highlights** for depth and dimension
+The game data is stored locally in `/data/games.json` as a JSON array. Each game object contains:
+
+- `id`: Unique identifier (category prefix + number)
+- `name`: Game title
+- `category`: Game genre
+- `rating`: Aggregate rating (0-10 scale) from Metacritic, IGN, and Steam
+- `year`: Release year
+- `developer`: Game developer
+- `publisher`: Game publisher
+- `fileSize`: Download size (e.g., "4.2 GB")
+- `downloadLink`: Direct download link from Internet Archive
+
+You can easily extend the dataset by adding more objects to the JSON array following the same format.
 
 ## Pages
 
@@ -39,12 +48,14 @@ The website employs skeuomorphism with these texture elements:
 ## Technical Implementation
 
 ### Frontend Technologies
+
 - HTML5
 - CSS3 (with CSS variables, flexbox, grid)
 - JavaScript (ES6+)
 - Font Awesome 6 for icons
 
 ### Design Features
+
 - CSS Variables for easy theming
 - Responsive layout with CSS Grid and Flexbox
 - Skeuomorphic effects using background images and CSS gradients
@@ -54,17 +65,17 @@ The website employs skeuomorphism with these texture elements:
 - Form validation and feedback
 
 ### JavaScript Functionality
-- Game filtering by category filtering and sorting
+
+- Game data loaded from `/data/games.json` via fetch API
+- Game filtering by category and sorting
 - Search functionality
 - Contact form handling with validation
-- Responsive menu behavior
 - Animation effects (ripple, fade-in, etc.)
-- Form submission simulation
 
 ## File Structure
 
 ```
-/gamesiteonline_website
+/gamesiteonline
 ├── index.html
 ├── /css
 │   └── style.css
@@ -72,6 +83,8 @@ The website employs skeuomorphism with these texture elements:
 │   ├── main.js
 │   ├── browse.js
 │   └── contact.js
+├── /data
+│   └── games.json          ← Game database (JSON)
 ├── /images
 │   ├── (placeholder images)
 │   ├── wood-texture.jpg
@@ -114,18 +127,18 @@ Replace the texture images in the `/images` folder:
 - `paper-texture.jpg` - Used for content backgrounds
 
 ### Adding More Games
-Edit the `sampleGames` array in `js/browse.js` to add more game objects following the same format:
-```javascript
+Edit `/data/games.json` to add more game objects following the same format:
+```json
 {
-    id: "CATEGORY_ID",
-    name: "Game Name",
-    category: "Category Name",
-    rating: 9.5,
-    year: 2020,
-    developer: "Developer Name",
-    publisher: "Publisher Name",
-    fileSize": "X GB",
-    downloadLink: "https://archive.org/details/game_identifier"
+    "id": "CATEGORY_ID",
+    "name": "Game Name",
+    "category": "Category Name",
+    "rating": 9.5,
+    "year": 2020,
+    "developer": "Developer Name",
+    "publisher": "Publisher Name",
+    "fileSize": "X GB",
+    "downloadLink": "https://archive.org/details/game_identifier"
 }
 ```
 
@@ -133,7 +146,7 @@ Edit the `sampleGames` array in `js/browse.js` to add more game objects followin
 
 - **Developed by**: Fahad Mohamed
 - **Design Inspiration**: Skeuomorphic design principles
-- **Game Data**: Based on ratings from Metacritic, IGN, and Steam
+- **Game Data**: Based on ratings from Metacritic, IGN, and Steam (stored locally)
 - **Download Links**: Internet Archive Software Library
 - **Icons**: Font Awesome 6
 
